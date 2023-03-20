@@ -5,16 +5,16 @@ import classes from './index.module.css';
 import backgroundColour from '../../fields/backgroundColour';
 
 export type Type = {
-  blockType: 'content';
+  blockType: 'videoHero';
   blockName?: string;
   content: unknown;
 };
 
-export const Content: Block = {
-  slug: 'content',
+export const VideoHero: Block = {
+  slug: 'video-hero',
   labels: {
-    singular: 'Content',
-    plural: 'Content Blocks',
+    singular: 'Video Hero',
+    plural: 'Video Hero Blocks',
   },
   fields: [
     backgroundColour,
@@ -71,8 +71,16 @@ export const Content: Block = {
               },
             },
             {
-              name: 'content',
+              name: 'title',
+              label: 'Title',
               type: 'richText',
+              required: true,
+            },
+            {
+              name: 'video',
+              label: 'Video',
+              type: 'upload',
+              relationTo: 'media',
               required: true,
             },
           ],
@@ -156,4 +164,4 @@ export const Component: React.FC<Type> = (props) => {
   );
 };
 
-export default Content;
+export default VideoHero;
